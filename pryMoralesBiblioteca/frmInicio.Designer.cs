@@ -46,7 +46,7 @@
             // lblCodLibro
             // 
             this.lblCodLibro.AutoSize = true;
-            this.lblCodLibro.Location = new System.Drawing.Point(22, 124);
+            this.lblCodLibro.Location = new System.Drawing.Point(22, 157);
             this.lblCodLibro.Name = "lblCodLibro";
             this.lblCodLibro.Size = new System.Drawing.Size(117, 20);
             this.lblCodLibro.TabIndex = 0;
@@ -64,7 +64,7 @@
             // lblCodEditorial
             // 
             this.lblCodEditorial.AutoSize = true;
-            this.lblCodEditorial.Location = new System.Drawing.Point(22, 169);
+            this.lblCodEditorial.Location = new System.Drawing.Point(22, 202);
             this.lblCodEditorial.Name = "lblCodEditorial";
             this.lblCodEditorial.Size = new System.Drawing.Size(156, 20);
             this.lblCodEditorial.TabIndex = 2;
@@ -73,7 +73,7 @@
             // lblCodAutor
             // 
             this.lblCodAutor.AutoSize = true;
-            this.lblCodAutor.Location = new System.Drawing.Point(22, 214);
+            this.lblCodAutor.Location = new System.Drawing.Point(22, 247);
             this.lblCodAutor.Name = "lblCodAutor";
             this.lblCodAutor.Size = new System.Drawing.Size(125, 20);
             this.lblCodAutor.TabIndex = 3;
@@ -82,7 +82,7 @@
             // lblCodDistribuidor
             // 
             this.lblCodDistribuidor.AutoSize = true;
-            this.lblCodDistribuidor.Location = new System.Drawing.Point(22, 259);
+            this.lblCodDistribuidor.Location = new System.Drawing.Point(22, 292);
             this.lblCodDistribuidor.Name = "lblCodDistribuidor";
             this.lblCodDistribuidor.Size = new System.Drawing.Size(165, 20);
             this.lblCodDistribuidor.TabIndex = 4;
@@ -90,15 +90,16 @@
             // 
             // txtCodLibro
             // 
-            this.txtCodLibro.Location = new System.Drawing.Point(226, 121);
+            this.txtCodLibro.Location = new System.Drawing.Point(226, 76);
+            this.txtCodLibro.Multiline = true;
             this.txtCodLibro.Name = "txtCodLibro";
             this.txtCodLibro.ReadOnly = true;
-            this.txtCodLibro.Size = new System.Drawing.Size(85, 26);
+            this.txtCodLibro.Size = new System.Drawing.Size(184, 61);
             this.txtCodLibro.TabIndex = 5;
             // 
             // txtCodEditorial
             // 
-            this.txtCodEditorial.Location = new System.Drawing.Point(226, 166);
+            this.txtCodEditorial.Location = new System.Drawing.Point(226, 199);
             this.txtCodEditorial.Name = "txtCodEditorial";
             this.txtCodEditorial.ReadOnly = true;
             this.txtCodEditorial.Size = new System.Drawing.Size(85, 26);
@@ -106,7 +107,7 @@
             // 
             // txtCodAutor
             // 
-            this.txtCodAutor.Location = new System.Drawing.Point(226, 211);
+            this.txtCodAutor.Location = new System.Drawing.Point(226, 244);
             this.txtCodAutor.Name = "txtCodAutor";
             this.txtCodAutor.ReadOnly = true;
             this.txtCodAutor.Size = new System.Drawing.Size(85, 26);
@@ -114,7 +115,7 @@
             // 
             // txtCodDistribuidor
             // 
-            this.txtCodDistribuidor.Location = new System.Drawing.Point(226, 256);
+            this.txtCodDistribuidor.Location = new System.Drawing.Point(226, 289);
             this.txtCodDistribuidor.Name = "txtCodDistribuidor";
             this.txtCodDistribuidor.ReadOnly = true;
             this.txtCodDistribuidor.Size = new System.Drawing.Size(85, 26);
@@ -132,15 +133,15 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(226, 73);
+            this.txtNombre.Location = new System.Drawing.Point(226, 154);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(184, 26);
+            this.txtNombre.Size = new System.Drawing.Size(85, 26);
             this.txtNombre.TabIndex = 12;
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(326, 305);
+            this.btnSiguiente.Location = new System.Drawing.Point(326, 338);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(84, 36);
             this.btnSiguiente.TabIndex = 13;
@@ -150,7 +151,7 @@
             // 
             // btnAnterior
             // 
-            this.btnAnterior.Location = new System.Drawing.Point(211, 305);
+            this.btnAnterior.Location = new System.Drawing.Point(211, 338);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(84, 36);
             this.btnAnterior.TabIndex = 14;
@@ -162,7 +163,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 359);
+            this.ClientSize = new System.Drawing.Size(428, 396);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.txtNombre);
