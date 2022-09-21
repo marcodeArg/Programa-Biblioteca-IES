@@ -21,17 +21,20 @@ namespace pryMoralesBiblioteca
 
         public string[,] matLibros = new string[21, 5];
         public int contador = 0;
+        public bool banDistribuidora = false;
+        public bool banEditorial = false;
+        public char separador = Convert.ToChar(",");
+
+
+
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
-            char separador = Convert.ToChar(",");
+
             int i = 0;
-            bool banDistribuidora = false;
-            bool banEditorial = false;
 
 
             StreamReader srLibro = new StreamReader("../../../LIBRO.txt");
-
 
 
             while (!srLibro.EndOfStream && i < 21)
@@ -44,7 +47,6 @@ namespace pryMoralesBiblioteca
                     vecLibro[pos] = Regex.Replace(vecLibro[pos], @"\t", "");
                 }
 
-
                 //Uso el vector para cargar la info del libro en las columnas de la matriz
                 matLibros[i, 0] = vecLibro[0];
                 matLibros[i, 1] = vecLibro[1];
@@ -52,51 +54,11 @@ namespace pryMoralesBiblioteca
                 matLibros[i, 3] = vecLibro[3];
                 matLibros[i, 4] = vecLibro[4];
 
+                //Busco el nombre de la editorial y lo cargo en la matriz
+                buscarEditorial(i);
 
-
-                StreamReader srEditorial = new StreamReader("../../../EDITORIAL.txt");
-                //Remplaza el codigo de la editorial por el nombre
-                while (!srEditorial.EndOfStream && !banEditorial)
-                {
-                    string[] vecEditorial = srEditorial.ReadLine().Split(separador);
-
-                    //Limpio los espacios en blanco del archivo EDITORIAL.txt
-                    for (int pos = 0; pos < vecEditorial.Length; pos++)
-                    {
-                        vecEditorial[pos] = Regex.Replace(vecEditorial[pos], @"\t", "");
-                    }
-
-                    //Asigno el nombre de la editorial a la matriz
-                    if (vecEditorial[0] == matLibros[i, 2])
-                    {
-                        matLibros[i, 2] = vecEditorial[1];
-                        banEditorial = true;
-                    }
-                }
-                srEditorial.Close();
-
-
-                StreamReader srDistribuidora = new StreamReader("../../../DISTRIBUIDORA.txt");
-                //Remplaza el codigo de la distribuidora por el nombre
-                while (!srDistribuidora.EndOfStream && !banDistribuidora)
-                {
-                    string[] vecDistribuidora = srDistribuidora.ReadLine().Split(separador);
-
-                    //Limpio los espacios en blanco del archivo DISTRIBUIDORA.txt
-                    for (int pos = 0; pos < vecDistribuidora.Length; pos++)
-                    {
-                        vecDistribuidora[pos] = Regex.Replace(vecDistribuidora[pos], @"\t", "");
-                    }
-
-
-                    if (vecDistribuidora[0] == matLibros[i, 4])
-                    {
-                        matLibros[i, 4] = vecDistribuidora[1];
-                        banDistribuidora = true;
-                    }
-                }
-                srDistribuidora.Close();
-
+                //Busco el nombre de la distribuidora y la cargo en la matriz
+                buscarDistribuidora(i);
 
                 //Limpio las banderas
                 banDistribuidora = false;
@@ -113,6 +75,57 @@ namespace pryMoralesBiblioteca
             txtNomDistribuidor.Text = matLibros[0, 4];
 
             btnAnterior.Enabled = false;
+        }
+
+
+        private void buscarEditorial(int index)
+        {
+
+            StreamReader srEditorial = new StreamReader("../../../EDITORIAL.txt");
+            
+            while (!srEditorial.EndOfStream && !banEditorial)
+            {
+                string[] vecEditorial = srEditorial.ReadLine().Split(separador);
+
+                //Limpio los espacios en blanco del archivo EDITORIAL.txt
+                for (int pos = 0; pos < vecEditorial.Length; pos++)
+                {
+                    vecEditorial[pos] = Regex.Replace(vecEditorial[pos], @"\t", "");
+                }
+
+                //Coloco el nombre de la distribuidora que corresponde
+                if (vecEditorial[0] == matLibros[index, 2])
+                {
+                    matLibros[index, 2] = vecEditorial[1];
+                    banEditorial = true;
+                }
+            }
+            srEditorial.Close();
+        }
+
+        private void buscarDistribuidora(int index)
+        {
+
+            StreamReader srDistribuidora = new StreamReader("../../../DISTRIBUIDORA.txt");
+            
+            while (!srDistribuidora.EndOfStream && !banDistribuidora)
+            {
+                string[] vecDistribuidora = srDistribuidora.ReadLine().Split(separador);
+
+                //Limpio los espacios en blanco del archivo DISTRIBUIDORA.txt
+                for (int pos = 0; pos < vecDistribuidora.Length; pos++)
+                {
+                    vecDistribuidora[pos] = Regex.Replace(vecDistribuidora[pos], @"\t", "");
+                }
+
+                //Coloco el nombre de la distribuidora que corresponde
+                if (vecDistribuidora[0] == matLibros[index, 4])
+                {
+                    matLibros[index, 4] = vecDistribuidora[1];
+                    banDistribuidora = true;
+                }
+            }
+            srDistribuidora.Close();
         }
 
 
